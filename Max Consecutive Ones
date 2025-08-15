@@ -1,0 +1,23 @@
+class Solution {
+    public int findMaxConsecutiveOnes(int[] nums) {
+        int maxCount = 0;   // Stores the maximum consecutive 1's found so far
+        int currCount = 0;  // Counts the current streak length of 1's
+
+        // Iterate through each element in the array
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == 1) {
+                // If we encounter a 1, extend the current streak
+                currCount++;
+            } else {
+                // If we encounter a 0, the streak breaks — reset count
+                currCount = 0;
+            }
+
+            // Update maxCount if the current streak is the longest so far
+            maxCount = Math.max(maxCount, currCount);
+        }
+
+        // Return the length of the longest consecutive streak of 1's
+        return maxCount;
+    }
+}
